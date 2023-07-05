@@ -15,7 +15,9 @@ async function connectDb() {
 }
 
 async function getDb() {
-  console.log(prisma);
+  if (!prisma) {
+    return new PrismaClient();
+  }
   return prisma;
 }
 

@@ -7,7 +7,7 @@ const SECRET_ACCESS_TOKEN = process.env.SECRET_ACCESS_TOKEN;
 const authMiddleware = async (req, res, next) => {
   try {
     // Get the access token from the request headers
-    const accessToken = req.headers.authorization;
+    const accessToken = req.headers.authorization.split(' ')[1];
 
     if (!accessToken) {
       return res.status(401).json({ message: 'Access token not found.' });
@@ -22,7 +22,9 @@ const authMiddleware = async (req, res, next) => {
     });
 
     if (!user) {
-      return res.status(401).json({ message: 'Invalid access token.' });
+      return res
+        .status(401)
+        .json({ success: false, message: 'Invalid access token.' });
     }
 
     // Attach the user object to the request for further use
@@ -31,8 +33,10 @@ const authMiddleware = async (req, res, next) => {
     // Proceed to the next middleware or route handler
     next();
   } catch (error) {
-    return res.status(401).json({ message: 'Invalid access token.' });
+    return res
+      .status(401)
+      .json({ success: false, message: 'Invalid access token.' });
   }
 };
 
-module.exports = authMiddleware;
+module.exports = { authMiddleware };

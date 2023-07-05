@@ -119,8 +119,8 @@ const generateTopSellingProductsReport = async (req, res) => {
   try {
     const { limit } = req.query;
 
-    const topSellingProducts = await prisma.orderProduct.groupBy({
-      by: ['productId', 'productName'],
+    const topSellingProducts = await prisma.order.groupBy({
+      by: ['productId'],
       _sum: {
         quantity: true
       },
