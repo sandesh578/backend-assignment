@@ -1,0 +1,36 @@
+{
+  "name": "sales-management-platform",
+  "version": "1.0.0",
+  "description": "Node.js Backend Developer - Sales Management Platform APIs",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sandesh578/backend-assignment.git"
+  },
+  "author": "Sandesh Parajuli",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sandesh578/backend-assignment/issues"
+  },
+  "homepage": "https://github.com/sandesh578/backend-assignment#readme",
+  "dependencies": {
+    "@prisma/client": "^4.16.2",
+    "axios": "^1.4.0",
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "http-terminator": "^3.2.0",
+    "joi": "^17.9.2",
+    "jsonwebtoken": "^9.0.0",
+    "log4js": "^6.9.1",
+    "migrate": "^2.0.0",
+    "mysql2": "^3.4.4",
+    "nodemon": "^2.0.22",
+    "prisma": "^4.16.2"
+  }
+}
