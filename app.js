@@ -1,8 +1,9 @@
 const dotenv = require('dotenv');
 dotenv.config({ path: './.env' });
-
 const path = require('path');
 const log4js = require('log4js');
+const swaggerJsdoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
 
 const DEFAULT_LOG_LEVEL = process.env.DEFAULT_LOG_LEVEL;
 const logger = log4js.getLogger(`${path.basename(__filename).split('.')[0]}`);
@@ -38,6 +39,23 @@ prismClient.connectDb();
 
 // routers
 app.use('/', APIRouters);
+
+// Swagger configuration options
+const swaggerOptions = {
+  definition: {
+    openapi: '3.0.0',
+    info: {
+      title: 'Node.js Backend Developer - Sales Management Platform APIs',
+      version: '1.0.0',
+      description:
+        'Sales management platform backend APIs for managing department store sales.'
+    }
+  },
+  apis: ['./routes/*.js']
+};
+
+const swaggerDocs = swaggerJsdoc(swaggerOptions);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 // global error handler
 app.use((err, req, res, next) => {

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
     "@prisma/client": "^4.16.2",
     "axios": "^1.4.0",
     "bcrypt": "^5.1.0",
+    "chai": "^4.3.7",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
@@ -30,10 +31,14 @@
     "jsonwebtoken": "^9.0.0",
     "log4js": "^6.9.1",
     "migrate": "^2.0.0",
+    "mocha": "^10.2.0",
     "mysql2": "^3.4.4",
     "nodemon": "^2.0.22",
     "npm": "^9.7.2",
     "prisma": "^4.16.2",
+    "save-dev": "^0.0.1-security",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^4.6.3",
     "uuid": "^9.0.0"
   }
 }
