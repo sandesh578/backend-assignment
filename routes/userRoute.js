@@ -173,6 +173,12 @@ router.get('/:id', getUserById);
  *                   type: boolean
  *                 message:
  *                   type: string
+ *       401:
+ *         description: Unauthorized Access
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/UnauthorizedAccess'
  *       500:
  *         description: Failed to create user
  *         content:

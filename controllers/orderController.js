@@ -3,7 +3,28 @@ const prisma = new PrismaClient();
 
 const getAllOrders = async (req, res) => {
   try {
-    const orders = await prisma.order.findMany();
+    const { page, limit, filters } = req.query;
+
+    //Set default page and limit values
+    const pageNumber = parseInt(page) || 1;
+    const pageSize = parseInt(limit) || 10;
+
+    // Parse filters if provided
+    let parsedFilters = {};
+    if (filters) {
+      parsedFilters = JSON.parse(filters);
+    }
+
+    // Calculate skip and take values for pagination
+    const skip = (pageNumber - 1) * pageSize;
+    const take = parseInt(pageSize);
+
+    // Apply pagination and filtering to the query
+    const orders = await prisma.order.findMany({
+      skip,
+      take,
+      where: parsedFilters
+    });
 
     res.status(200).json({
       success: true,

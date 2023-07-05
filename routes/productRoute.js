@@ -24,19 +24,25 @@ const {
  *     Product:
  *       type: object
  *       properties:
+ *         id:
+ *           type: string
  *         name:
  *           type: string
+ *           default: "product"
  *         description:
  *           type: string
+ *           default: "product description"
  *         price:
  *           type: number
  *           format: float
+ *           default: 100
  *
  *     ProductResponse:
  *       type: object
  *       properties:
  *         success:
  *           type: boolean
+ *           example: true
  *         message:
  *           type: string
  *         product:
@@ -55,18 +61,23 @@ const {
  *             $ref: '#/components/schemas/Product'
  *         page:
  *           type: integer
+ *           example: 1
  *         totalPages:
  *           type: integer
+ *           example: 10
  *         totalCount:
  *           type: integer
+ *           example: 5
  *
  *     ErrorResponse:
  *       type: object
  *       properties:
  *         success:
  *           type: boolean
+ *           example: false
  *         message:
  *           type: string
+ *           example: "Failed"
  *         error:
  *           type: string
  *
@@ -75,13 +86,35 @@ const {
  *       properties:
  *         success:
  *           type: boolean
+ *           example: true
  *         message:
  *           type: string
+ *           example: "Success"
+ *
+ *     NotFound:
+ *       type: object
+ *       properties:
+ *         success:
+ *           type: boolean
+ *           example: false
+ *         message:
+ *           type: string
+ *           example: "Not Found"
+ *
+ *     UnauthorizedAccess:
+ *       type: object
+ *       properties:
+ *         success:
+ *           type: boolean
+ *           example: false
+ *         message:
+ *           type: string
+ *           example: "Access token not found."
  */
 
 /**
  * @swagger
- * /products:
+ * /products/all:
  *   get:
  *     summary: Get all products with pagination
  *     tags: [Products]
@@ -114,40 +147,6 @@ router.get('/all', getAllProducts);
 
 /**
  * @swagger
- * /products/{id}:
- *   get:
- *     summary: Get a product by ID
- *     tags: [Products]
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         schema:
- *           type: string
- *     responses:
- *       200:
- *         description: Product fetched successfully
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ProductResponse'
- *       404:
- *         description: Product not found
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ErrorResponse'
- *       500:
- *         description: Failed to fetch product
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ErrorResponse'
- */
-router.get('/:id', getProductById);
-
-/**
- * @swagger
  * /products:
  *   get:
  *     summary: Get products by name
@@ -170,7 +169,7 @@ router.get('/:id', getProductById);
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/ErrorResponse'
+ *               $ref: '#/components/schemas/NotFound'
  *       500:
  *         description: Failed to fetch products
  *         content:
@@ -179,6 +178,40 @@ router.get('/:id', getProductById);
  *               $ref: '#/components/schemas/ErrorResponse'
  */
 router.get('/', getProductByName);
+
+/**
+ * @swagger
+ * /products/{id}:
+ *   get:
+ *     summary: Get a product by ID
+ *     tags: [Products]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Product fetched successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ProductResponse'
+ *       404:
+ *         description: Product not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/NotFound'
+ *       500:
+ *         description: Failed to fetch product
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ */
+router.get('/:id', getProductById);
 
 /**
  * @swagger

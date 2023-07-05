@@ -23,8 +23,6 @@ const {
  *     Order:
  *       type: object
  *       properties:
- *         id:
- *           type: string
  *         userId:
  *           type: string
  *         productId:
@@ -33,16 +31,6 @@ const {
  *           type: integer
  *         totalAmount:
  *           type: number
- *         createdAt:
- *           type: string
- *           format: date-time
- *         updatedAt:
- *           type: string
- *           format: date-time
- *         user:
- *           $ref: '#/components/schemas/User'
- *         product:
- *           $ref: '#/components/schemas/Product'
  *
  *     OrderResponse:
  *       type: object
@@ -73,6 +61,27 @@ const {
  *   get:
  *     summary: Get all orders
  *     tags: [Orders]
+ *     parameters:
+ *       - name: page
+ *         in: query
+ *         description: Page number
+ *         required: false
+ *         type: integer
+ *         format: int32
+ *         default: 1
+ *       - name: limit
+ *         in: query
+ *         description: Number of orders per page
+ *         required: false
+ *         type: integer
+ *         format: int32
+ *         default: 10
+ *       - name: filters
+ *         in: query
+ *         description: JSON object specifying filtering criteria
+ *         required: false
+ *         type: string
+ *         example: '{"status": "completed"}'
  *     responses:
  *       200:
  *         description: Orders fetched successfully
@@ -110,6 +119,12 @@ router.get('/all', getAllOrders);
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/OrderResponse'
+ *       401:
+ *         description: Unauthorized Access
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/UnauthorizedAccess'
  *       500:
  *         description: Failed to create order
  *         content:
@@ -146,6 +161,12 @@ router.post('/', authMiddleware, createOrder);
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/OrderResponse'
+ *       401:
+ *         description: Unauthorized Access
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/UnauthorizedAccess'
  *       500:
  *         description: Failed to update order
  *         content:
@@ -176,6 +197,12 @@ router.put('/:id', authMiddleware, updateOrder);
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/SuccessResponse'
+ *       401:
+ *         description: Unauthorized Access
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/UnauthorizedAccess'
  *       500:
  *         description: Failed to delete order
  *         content:
@@ -217,6 +244,6 @@ router.delete('/:id', authMiddleware, deleteOrder);
  *             schema:
  *               $ref: '#/components/schemas/ErrorResponse'
  */
-router.get('/:id', authMiddleware, getOrderById);
+router.get('/:id', getOrderById);
 
 module.exports = router;
