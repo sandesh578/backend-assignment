@@ -1,5 +1,5 @@
 const dotenv = require('dotenv');
-dotenv.config({ path: './config/.env.dev' });
+dotenv.config({ path: './.env' });
 
 const path = require('path');
 const log4js = require('log4js');
@@ -26,11 +26,16 @@ if (NODE_ENV === 'development') {
   });
 }
 
-const { app } = require('./server');
+const { app, server } = require('./server');
+const prismClient = require('./utils/connect2db');
 const gracefulTermination = require('./gracefulExit');
 
 // importing routes
-const APIRouters = require('./routes/routers');
+const APIRouters = require('./routes');
+
+//establishing db connection
+prismClient.connectDb();
+
 // routers
 app.use('/', APIRouters);
 
@@ -41,7 +46,7 @@ app.use((err, req, res, next) => {
 
   logger.error(err);
 
-  // render the error page
+  // render the error message
   res.status(err.status || 500);
   const response = {
     message: (err.data && err.data.message) || 'Internal server error',

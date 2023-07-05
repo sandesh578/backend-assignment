@@ -25,12 +25,15 @@
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "http-terminator": "^3.2.0",
+    "i": "^0.3.7",
     "joi": "^17.9.2",
     "jsonwebtoken": "^9.0.0",
     "log4js": "^6.9.1",
     "migrate": "^2.0.0",
     "mysql2": "^3.4.4",
     "nodemon": "^2.0.22",
-    "prisma": "^4.16.2"
+    "npm": "^9.7.2",
+    "prisma": "^4.16.2",
+    "uuid": "^9.0.0"
   }
 }
