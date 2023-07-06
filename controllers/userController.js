@@ -164,7 +164,7 @@ const deleteUser = async (req, res) => {
     res.status(200).json({
       success: true,
       message: 'User deleted successfully',
-      deleteUser
+      deletedUser
     });
   } catch (err) {
     if (err.code === 'P2002') {

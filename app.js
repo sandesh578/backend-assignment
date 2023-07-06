@@ -9,6 +9,7 @@ const DEFAULT_LOG_LEVEL = process.env.DEFAULT_LOG_LEVEL;
 const logger = log4js.getLogger(`${path.basename(__filename).split('.')[0]}`);
 const NODE_ENV = process.env.NODE_ENV;
 
+//logging in file as well as console
 if (NODE_ENV === 'development') {
   log4js.configure({
     appenders: {
@@ -27,7 +28,7 @@ if (NODE_ENV === 'development') {
   });
 }
 
-const { app, server } = require('./server');
+const { app } = require('./server');
 const prismClient = require('./utils/connect2db');
 const gracefulTermination = require('./gracefulExit');
 
@@ -75,7 +76,9 @@ app.use((err, req, res, next) => {
 });
 
 // graceful termination of process
-process.on('SIGTERM', (error) => gracefulTermination(error, server));
-process.on('SIGINT', (error) => gracefulTermination(error, server));
-process.on('uncaughtException', (error) => gracefulTermination(error, server));
-process.on('unhandledRejection', (error) => gracefulTermination(error, server));
+process.on('SIGTERM', (error) => gracefulTermination(error, app));
+process.on('SIGINT', (error) => gracefulTermination(error, app));
+process.on('uncaughtException', (error) => gracefulTermination(error, app));
+process.on('unhandledRejection', (error) => gracefulTermination(error, app));
+
+module.exports = { app };

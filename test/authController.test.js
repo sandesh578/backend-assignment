@@ -1,12 +1,17 @@
 const { expect } = require('chai');
 const { registerUser, loginUser } = require('../controllers/authController');
 const { PrismaClient } = require('@prisma/client');
-const prisma = new PrismaClient();
 const { encrypt, decrypt } = require('../crypto/fileCrypto');
 
 describe('Authentication API', () => {
+  let prisma;
   const email = 'test1234@gmail.com';
   let testEmail = 'testuserlogin@example.com';
+
+  before(async () => {
+    prisma = new PrismaClient();
+  });
+
   describe('registerUser', () => {
     it('should register a new user', async () => {
       const req = {

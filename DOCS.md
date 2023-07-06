@@ -1,4 +1,4 @@
-Technology Used in Project:
+Technology Used in Project(Nodejs Backend):
 
 1. `@prisma/client`: Prisma is an Object-Relational Mapping (ORM) tool for Node.js that simplifies database access and manipulation.
 
@@ -24,6 +24,8 @@ Technology Used in Project:
 
 12. `mocha`: Mocha is a feature-rich JavaScript testing framework that runs on Node.js. It provides a clean and flexible syntax for writing test cases, supports various testing styles
 
+13. `chai-http` Chai-HTTP allows you to send HTTP requests such as GET, POST, PUT, DELETE, etc. to your server for testing HTTP endpoints.
+
 Steps to run code locally
 
 Step 1: Clone the project from my forked repo which is https://github.com/sandesh578/backend-assignment.git
@@ -35,8 +37,12 @@ Step 3: Run command npm install
 Step 4: Change the environment variable for username and password of MySQL database
 DATABASE_URL="mysql://root:Root@localhost:3306/salesmanagement"
 
-Step 5: Run npx prisma generate command and also node seed for seeding data to database
+Step 5: Create salesmanagement schema in MYSQL database
 
-Step 6: Run command npm run start to run project and check for api
+Step 6: Run npx prisma generate command and also node seed command for seeding data to database
 
-Step 7: Run command npm run test to test unit testing implemented for authController
+Step 7: Run command npm run start to run project and check for api
+
+Step 8: Open browser and enter http://localhost:5021/api-docs/# to look at the Swagger API documentation after running server
+
+Step 9: Run command npm run test to test unit testing implemented for authController

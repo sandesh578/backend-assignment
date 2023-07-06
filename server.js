@@ -14,8 +14,8 @@ app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-const server = app.listen(BACKEND_API_PORT, () => {
+app.listen(BACKEND_API_PORT, () => {
   logger.info(`Server listening on port: ${BACKEND_API_PORT}`);
 });
 
-module.exports = { app, server };
+module.exports = { app };
