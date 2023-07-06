@@ -17,7 +17,7 @@ Step 7: Run command npm run start to run project and check for api
 Note: To test the api I have even provided postman collection api testing json file that can be imported into postman and directly tested inside ProjectDirectReferenceAssets/Postman folder
 
 Step 8: Open browser and enter http://localhost:5021/api-docs/# to look at the Swagger API documentation after running server
-Note: I have provide sample Swagger UI.html file in ProjectDirectReferenceAssets/Project ImagesPDF folder which can be directly viewed in browser
+Note: I have provided sample Swagger UI.html file in ProjectDirectReferenceAssets/Project ImagesPDF folder which can be directly viewed in browser by downloading locally along with Swagger UI_files
 
 Step 9: Run command npm run test to test unit testing implemented for authController,reportController and userController
 Note: I have attached image of sample test execution as well inside ProjectDirectReferenceAssets/
