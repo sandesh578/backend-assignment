@@ -37,7 +37,6 @@
     "prisma": "^4.16.2",
     "save-dev": "^0.0.1-security",
     "swagger-jsdoc": "^6.2.8",
-    "swagger-ui-express": "^4.6.3",
-    "uuid": "^9.0.0"
+    "swagger-ui-express": "^4.6.3"
   }
 }

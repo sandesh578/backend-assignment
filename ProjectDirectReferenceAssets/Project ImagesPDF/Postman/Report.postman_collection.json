@@ -1,0 +1,118 @@
+{
+	"info": {
+		"_postman_id": "381bbdcb-c73e-4bef-8022-e90c08d499f4",
+		"name": "Report",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15747177"
+	},
+	"item": [
+		{
+			"name": "dailySales",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5021/reports/daily?date=2023-07-05",
+					"host": [
+						"localhost"
+					],
+					"port": "5021",
+					"path": [
+						"reports",
+						"daily"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2023-07-05"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "weeklySales",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5021/reports/weekly?week=22&year=2023",
+					"host": [
+						"localhost"
+					],
+					"port": "5021",
+					"path": [
+						"reports",
+						"weekly"
+					],
+					"query": [
+						{
+							"key": "week",
+							"value": "22"
+						},
+						{
+							"key": "year",
+							"value": "2023"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "monthlySales",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5021/reports/monthly?month=07&year=2023",
+					"host": [
+						"localhost"
+					],
+					"port": "5021",
+					"path": [
+						"reports",
+						"monthly"
+					],
+					"query": [
+						{
+							"key": "month",
+							"value": "07"
+						},
+						{
+							"key": "year",
+							"value": "2023"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "topSelling",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5021/reports/top-selling-products?limit=2",
+					"host": [
+						"localhost"
+					],
+					"port": "5021",
+					"path": [
+						"reports",
+						"top-selling-products"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

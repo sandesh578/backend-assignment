@@ -1,0 +1,190 @@
+{
+	"info": {
+		"_postman_id": "d2e13d9e-a697-4869-bab2-164cf255306c",
+		"name": "order",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15747177"
+	},
+	"item": [
+		{
+			"name": "createOrder",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU0MjBlNzcxLTI4YmQtNGI1My05MGRhLTdjZDdhMzg4MmQ3OCIsImlhdCI6MTY4ODU0MDQwOCwiZXhwIjoxNjg4OTcyNDA4fQ.St36hd4cufUJQWx8uqHi--ZFIyisk-BdzmMLHGcr_AU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userId\": \"bca830fa-287a-42cc-8635-e1da3409b4fb\",\r\n  \"productId\": \"11c7b16b-54da-4380-80f6-5f4a968be2be\",\r\n  \"quantity\": 9,\r\n  \"totalAmount\": 5000\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5021/orders/",
+					"host": [
+						"localhost"
+					],
+					"port": "5021",
+					"path": [
+						"orders",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update Order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU0MjBlNzcxLTI4YmQtNGI1My05MGRhLTdjZDdhMzg4MmQ3OCIsImlhdCI6MTY4ODU0MDQwOCwiZXhwIjoxNjg4OTcyNDA4fQ.St36hd4cufUJQWx8uqHi--ZFIyisk-BdzmMLHGcr_AU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userId\": \"bca830fa-287a-42cc-8635-e1da3409b4fb\",\r\n  \"productId\": \"11c7b16b-54da-4380-80f6-5f4a968be2be\",\r\n  \"quantity\": 888,\r\n  \"totalAmount\": 530984\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5021/orders/b0650c46-d3de-4578-9eb6-20d29df937b9",
+					"host": [
+						"localhost"
+					],
+					"port": "5021",
+					"path": [
+						"orders",
+						"b0650c46-d3de-4578-9eb6-20d29df937b9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOrder",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userId\": \"bca830fa-287a-42cc-8635-e1da3409b4fb\",\r\n  \"productId\": \"11c7b16b-54da-4380-80f6-5f4a968be2be\",\r\n  \"quantity\": 3,\r\n  \"totalAmount\": 534\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5021/orders/9a07c852-8da5-4fa8-be2e-9775fac440b5",
+					"host": [
+						"localhost"
+					],
+					"port": "5021",
+					"path": [
+						"orders",
+						"9a07c852-8da5-4fa8-be2e-9775fac440b5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllOrders",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userId\": \"bca830fa-287a-42cc-8635-e1da3409b4fb\",\r\n  \"productId\": \"11c7b16b-54da-4380-80f6-5f4a968be2be\",\r\n  \"quantity\": 3,\r\n  \"totalAmount\": 534\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5021/orders/all?limit=5&page=1&filters={\"quantity\":2}",
+					"host": [
+						"localhost"
+					],
+					"port": "5021",
+					"path": [
+						"orders",
+						"all"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "5"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "filters",
+							"value": "{\"quantity\":2}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteOrder",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userId\": \"bca830fa-287a-42cc-8635-e1da3409b4fb\",\r\n  \"productId\": \"11c7b16b-54da-4380-80f6-5f4a968be2be\",\r\n  \"quantity\": 3,\r\n  \"totalAmount\": 534\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5021/orders/9a07c852-8da5-4fa8-be2e-9775fac440b5",
+					"host": [
+						"localhost"
+					],
+					"port": "5021",
+					"path": [
+						"orders",
+						"9a07c852-8da5-4fa8-be2e-9775fac440b5"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

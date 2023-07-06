@@ -1,0 +1,223 @@
+{
+	"info": {
+		"_postman_id": "05c25684-1a05-427f-9351-5d3ab2c6d496",
+		"name": "product",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15747177"
+	},
+	"item": [
+		{
+			"name": "createProduct",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU0MjBlNzcxLTI4YmQtNGI1My05MGRhLTdjZDdhMzg4MmQ3OCIsImlhdCI6MTY4ODU0MDQwOCwiZXhwIjoxNjg4OTcyNDA4fQ.St36hd4cufUJQWx8uqHi--ZFIyisk-BdzmMLHGcr_AU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Samsung\",\r\n  \"description\": \"A high-end smartphone with advanced features.\",\r\n  \"price\": 99909\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5021/products/",
+					"host": [
+						"localhost"
+					],
+					"port": "5021",
+					"path": [
+						"products",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateProduct",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU0MjBlNzcxLTI4YmQtNGI1My05MGRhLTdjZDdhMzg4MmQ3OCIsImlhdCI6MTY4ODU0MDQwOCwiZXhwIjoxNjg4OTcyNDA4fQ.St36hd4cufUJQWx8uqHi--ZFIyisk-BdzmMLHGcr_AU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"iPhone 13 pro\",\r\n  \"description\": \"A high-end smartphone with advanced features.\",\r\n  \"price\": 999.99\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5021/products/7c15cea1-0d67-4ad1-8d38-13eccc705d28",
+					"host": [
+						"localhost"
+					],
+					"port": "5021",
+					"path": [
+						"products",
+						"7c15cea1-0d67-4ad1-8d38-13eccc705d28"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getProductById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5021/products/7c15cea1-0d67-4ad1-8d38-13eccc705d28",
+					"host": [
+						"localhost"
+					],
+					"port": "5021",
+					"path": [
+						"products",
+						"7c15cea1-0d67-4ad1-8d38-13eccc705d28"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete product",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5021/products/ec8c5044-f19e-4f6d-b59e-9aa57dcea7c",
+					"host": [
+						"localhost"
+					],
+					"port": "5021",
+					"path": [
+						"products",
+						"ec8c5044-f19e-4f6d-b59e-9aa57dcea7c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getProductsByName",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5021/products?name=iPhone 12",
+					"host": [
+						"localhost"
+					],
+					"port": "5021",
+					"path": [
+						"products"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "iPhone 12"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllProducts",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "limit",
+						"value": "1",
+						"type": "text"
+					},
+					{
+						"key": "page",
+						"value": "1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5021/products/all",
+					"host": [
+						"localhost"
+					],
+					"port": "5021",
+					"path": [
+						"products",
+						"all"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

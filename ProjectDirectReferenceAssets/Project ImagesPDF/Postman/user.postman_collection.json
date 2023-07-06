@@ -1,0 +1,180 @@
+{
+	"info": {
+		"_postman_id": "8726a8bd-785c-4c32-8e98-629271d10867",
+		"name": "user",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15747177"
+	},
+	"item": [
+		{
+			"name": "createUser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU0MjBlNzcxLTI4YmQtNGI1My05MGRhLTdjZDdhMzg4MmQ3OCIsImlhdCI6MTY4ODU0MDQwOCwiZXhwIjoxNjg4OTcyNDA4fQ.St36hd4cufUJQWx8uqHi--ZFIyisk-BdzmMLHGcr_AU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Subash Parajuli\",\r\n    \"email\":\"subash@gmail.com\",\r\n    \"password\":\"Subash@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5021/users/",
+					"host": [
+						"localhost"
+					],
+					"port": "5021",
+					"path": [
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateUser",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Riwaj Parajuli\",\r\n    \"email\":\"riwaj123@gmail.com\",\r\n    \"password\":\"Sandesh@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5021/users/bd6d3e59-0f9a-44ec-8fa2-e721831b7572",
+					"host": [
+						"localhost"
+					],
+					"port": "5021",
+					"path": [
+						"users",
+						"bd6d3e59-0f9a-44ec-8fa2-e721831b7572"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUserByID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Riwaj Parajuli\",\r\n    \"email\":\"riwaj123@gmail.com\",\r\n    \"password\":\"Sandesh@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5021/users/bd6d3e59-0f9a-44ec-8fa2-e721831b7572",
+					"host": [
+						"localhost"
+					],
+					"port": "5021",
+					"path": [
+						"users",
+						"bd6d3e59-0f9a-44ec-8fa2-e721831b7572"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteUser",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Riwaj Parajuli\",\r\n    \"email\":\"riwaj123@gmail.com\",\r\n    \"password\":\"Sandesh@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5021/users/bd6d3e59-0f9a-44ec-8fa2-e721831b7572",
+					"host": [
+						"localhost"
+					],
+					"port": "5021",
+					"path": [
+						"users",
+						"bd6d3e59-0f9a-44ec-8fa2-e721831b7572"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllUsers",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Riwaj Parajuli\",\r\n    \"email\":\"riwaj123@gmail.com\",\r\n    \"password\":\"Sandesh@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5021/users/all?name=Durlav&limit=5&page=1",
+					"host": [
+						"localhost"
+					],
+					"port": "5021",
+					"path": [
+						"users",
+						"all"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Durlav"
+						},
+						{
+							"key": "limit",
+							"value": "5"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

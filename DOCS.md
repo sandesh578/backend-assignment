@@ -1,4 +1,28 @@
-Technology Used in Project(Nodejs Backend):
+`Steps to run code locally`
+
+Step 1: Clone the project from my forked repo which is https://github.com/sandesh578/backend-assignment.git
+
+Step 2: Open in VSCode
+
+Step 3: Run command npm install
+
+Step 4: Change the environment variable for username and password of MySQL database
+DATABASE_URL="mysql://root:Root@localhost:3306/salesmanagement"
+
+Step 5: Create salesmanagement schema in MYSQL database
+
+Step 6: Run npx prisma generate command and also node seed command for seeding data to database
+
+Step 7: Run command npm run start to run project and check for api
+Note: To test the api I have even provided postman collection api testing json file that can be imported into postman and directly tested inside ProjectDirectReferenceAssets/Postman folder
+
+Step 8: Open browser and enter http://localhost:5021/api-docs/# to look at the Swagger API documentation after running server
+Note: I have provide sample Swagger UI.html file in ProjectDirectReferenceAssets/Project ImagesPDF folder which can be directly viewed in browser
+
+Step 9: Run command npm run test to test unit testing implemented for authController,reportController and userController
+Note: I have attached image of sample test execution as well inside ProjectDirectReferenceAssets/
+
+`Technology/Npm packages Used in Project(Nodejs Backend)`:
 
 1. `@prisma/client`: Prisma is an Object-Relational Mapping (ORM) tool for Node.js that simplifies database access and manipulation.
 
@@ -24,25 +48,8 @@ Technology Used in Project(Nodejs Backend):
 
 12. `mocha`: Mocha is a feature-rich JavaScript testing framework that runs on Node.js. It provides a clean and flexible syntax for writing test cases, supports various testing styles
 
-13. `chai-http` Chai-HTTP allows you to send HTTP requests such as GET, POST, PUT, DELETE, etc. to your server for testing HTTP endpoints.
+13. `chai-http`: Chai-HTTP allows you to send HTTP requests such as GET, POST, PUT, DELETE, etc. to your server for testing HTTP endpoints.
 
-Steps to run code locally
+14. `swagger-ui-express`: The swagger-ui-express package allows you to integrate Swagger UI into your Node.js application. Swagger UI is a popular tool for visualizing and interacting with RESTful APIs that are described using the OpenAPI Specification (formerly known as Swagger).
 
-Step 1: Clone the project from my forked repo which is https://github.com/sandesh578/backend-assignment.git
-
-Step 2: Open in VSCode
-
-Step 3: Run command npm install
-
-Step 4: Change the environment variable for username and password of MySQL database
-DATABASE_URL="mysql://root:Root@localhost:3306/salesmanagement"
-
-Step 5: Create salesmanagement schema in MYSQL database
-
-Step 6: Run npx prisma generate command and also node seed command for seeding data to database
-
-Step 7: Run command npm run start to run project and check for api
-
-Step 8: Open browser and enter http://localhost:5021/api-docs/# to look at the Swagger API documentation after running server
-
-Step 9: Run command npm run test to test unit testing implemented for authController
+15. `swagger-ui-express`: It serves Swagger UI as a middleware in application, making it accessible through a specific route. It provides a user-friendly interface where you can explore and test your API endpoints.
